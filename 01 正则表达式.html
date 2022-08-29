@@ -6,9 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
+    <input type="text" id="text" name="text" value="" placeholder="请输入abc">
     <a href="">aaaaaaaa</a>
+    <script>
+        text.addEventListener('focus', function() {
+            if (this.value.length > 0) {
+                this.value = this.value;
+            } else {
+                this.value = this.placeholder;
+            }
+
+        })
+        var a = document.querySelector('a');
+        console.log(a);
+        console.log(text);
+        var ztext = /abc/;
+        text.addEventListener('blur', function() {
+            console.log("获得焦点");
+            this.value = this.value;
+            var zz = ztext.test(text.value);
+            console.log(zz);
+            if (zz == true) {
+                a.innerText = "符合正则"
+            } else {
+                a.innerText = "不符合";
+                console.log("不符合", zz)
+            }
+        })
+    </script>
 </body>
-</html
+
+</html>

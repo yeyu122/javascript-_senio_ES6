@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var d = /\d/; // 小写d 包含数字
+
+    console.log(d.test("123")); //true
+    console.log(d.test("acb")); //false
+
+    var D = /\D/; // 大写D 不包含数字
+    console.log(D.test("123")); //false
+    console.log(D.test("acb")); //true
+
+    var s = /\s/; //一个空白字符
+    var S = /\S/; //一个非空白
+
+    var w = /\w/; //字母 数字 下划线
+
+
+
+    var reg = /\d+/;
+    console.log(reg.exec("111a22cb3")); //true
+    // {限制次数}
+    var reg1 = /\d{3}/;
+    console.log(reg1.test("abs111")); //true
+</script>
+
+</html>
