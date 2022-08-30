@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        p {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 400px;
+            height: 200px;
+            background-color: aqua;
+        }
+        
+        #text {
+            margin-top: 30px;
+            margin-left: 120px;
+            line-height: 45px;
+            height: 50px;
+            min-width: 100px;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        span {
+            text-align: center;
+            float: left;
+            display: block;
+            margin-top: 40px;
+            margin-left: 49px;
+            z-index: 999;
+            width: 60px;
+            height: 30px;
+            background-color: rgb(193, 172, 172);
+        }
+        
+        p span:nth-child(3).active {
+            background-color: red;
+        }
+        
+        p span:nth-child(4).active {
+            background-color: rgb(255, 230, 0);
+        }
+        
+        p span:nth-child(5).active {
+            background-color: rgb(106, 255, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <input type="text" name="" id="text"><br>
+        <span>弱</span>
+        <span>中</span>
+        <span>强</span>
+    </p>
+
+</body>
+<script>
+    var span = document.querySelectorAll('span');
+    console.log(span);
+    console.log(text);
+    text.addEventListener('input', function() {
+        console.log(this.value);
+        let a = /[1-9]/g;
+        let b = /[a-z]/i;
+        let c = /[!@#$%^&*()]/;
+        var str = 0;
+        if (a.test(text.value) == true) {
+            str++;
+        }
+        if (b.test(text.value) == true) {
+            str++;
+        }
+        if (c.test(text.value) == true) {
+            str++;
+        }
+        console.log(str);
+        for (var i = 0; i < span.length; i++) {
+            span[i].className = "";
+            // span[i].classlist.remove("active");
+            if (i < str) {
+                span[i].className = "active";
+                // span[i].classlist.add("active");
+            }
+        }
+    });
+</script>
+
+</html>
