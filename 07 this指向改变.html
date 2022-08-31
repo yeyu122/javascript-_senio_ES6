@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://www.runoob.com/images/tryitimg.gif" type="image/x-icon">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // this指向,谁指向this this就指向谁
+
+    var a = {
+            name: "王八蛋",
+            getname: function(a, b, c, d) {
+                console.log('name1:', this.name);
+                console.log('参数:', a, b, c, d);
+            }
+        }
+        // console.log(a.getname);
+    a.getname()
+    var b = {
+        name: "王九蛋",
+        getname: function() {
+            console.log('name2:', this.name)
+        }
+    }
+    b.getname()
+        // call
+        // 指向改变, 会自动执行
+        // call 执行函数并改变方向,可以传输行参
+        // 支持对个参数
+    a.getname.call(b, 1, 23, 2)
+    
+        // apply 
+        // 与call类似 ，会自动执行
+        // 尽支持2个参数 第二个是数组[]
+    a.getname.apply(b, [1, 2, 3, 4])
+
+    // bind
+    // 与call类似 但是不会自动执行
+    // 支持对个参数
+    a.getname.bind(b, 1, 23, 2)
+</script>
+
+</html>
