@@ -76,6 +76,7 @@
     var test = function() {
         console.log(arguments)
         console.log(arguments[0], arguments[1], arguments[2])
+        console.log(Array.from(arguments), '伪数组转换为真数组'); //Array.from 伪数组转换为真数组
     }
     test(1, 2, 3);
 </script>

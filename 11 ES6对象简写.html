@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="text">
+    <input type="password" name="" id="password">
+    <button id='c'>提交</button>
+</body>
+<script>
+    c.addEventListener('click', function() {
+        var text1 = document.querySelector('#text');
+        var password1 = document.querySelector('#password');
+        let text = text1.value;
+        let password = password1.value;
+        console.log(text1.value, 'ffggf,', password1.value);
+        console.log(text1, ',', password1);
+
+        // var d = {
+        //         text: text,
+        //         password: password
+        //     }
+
+        // 当提交名与变量名称相同时可以省略 变量
+        var d = {
+                text,
+                password
+            }
+            // 提交后端对象方法模拟
+        console.log('这是后端数据提交模拟:', d)
+    });
+</script>
+
+</html>

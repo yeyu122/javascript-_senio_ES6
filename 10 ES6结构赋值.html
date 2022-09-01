@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var arr = ['dddd', 'ssss', 'aaaa'];
+    var [a, b, c] = arr;
+    // a = 10
+    console.log(a, b, c);
+
+    //交换ab的值
+    var a = 10;
+    var b = 20;
+    var [b, a] = [a, b];
+    console.log(a, b)
+
+
+    var obj1 = {
+        name: '小王吧',
+        age: 33,
+        location: {
+            province: '云南',
+            city: '昆明'
+        },
+        hobby: [111, 222, 333]
+    }
+
+    var {
+        name,
+        age,
+        location: {
+            province,
+            city
+        },
+        hobby: [a, b, c]
+    } = obj1
+
+    console.log(name, age, location, city, province, a, b, c)
+</script>
+
+</html>
