@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <biv class="box">
+        <h1></h1>
+        <ul></ul>
+    </biv>
+    <biv class="box2">
+        <h1></h1>
+        <ul></ul>
+    </biv>
+</body>
+<script>
+    var data1 = {
+        title: '体育',
+        list: ['体育1', '体育2', '体育3']
+    };
+    var data2 = {
+        title: '艺术',
+        list: ['艺术1', '艺术2', '艺术3']
+    }
+
+    function Createlist(element, data) {
+        this.element = document.querySelector('element');
+        this.title = data.title;
+        this.list = data.list;
+        // this.title = title;
+        // this.list = list;
+        this.render = function() {
+            var h1 = document.querySelector('h1');
+            var ul = document.querySelector('ul');
+            h1.innerHTML = this.title;
+            ul.innerHTML = this.list.map(itme => `<li>${itme}</li>`).join('');
+
+        }
+
+
+    };
+    // var obj1 = new Createlist('.box', data.title, data.list);
+    // console.log(obj1);
+    var obj1 = new Createlist('.box', data1);
+    console.log(obj1);
+    var obj2 = new Createlist('.box2', data2);
+    console.log(obj2);
+
+    obj1.render();
+    obj2.render();
+</script>
+
+</html>
