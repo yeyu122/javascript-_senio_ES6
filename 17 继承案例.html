@@ -10,6 +10,7 @@
 
 <body>
     <biv class="box">
+        <img src="" alt="">
         <h1></h1>
         <ul></ul>
     </biv>
@@ -21,6 +22,7 @@
 <script>
     var data1 = {
         title: '体育',
+        img: './2.png',
         list: ['体育1', '体育2', '体育3']
     };
     var data2 = {
@@ -44,18 +46,27 @@
         // }
 
         // 挂载原型prototype 可以共享内存
-        Createlist.prototype.render = function() {
-            var h1 = this.ele.querySelector('h1');
-            var ul = this.ele.querySelector('ul');
-            h1.innerHTML = this.title;
-            ul.innerHTML = this.list.map(itme => `<li>${itme}</li>`).join('');
-
-        }
+    }
 
 
-    };
+    // function createimg() {
+    //     Createlist.call(this, select, data) //继承
+    //     this.img = data.img;
+    // }
+    // createimg.prototype = new Createlist() //继承
     // var obj1 = new Createlist('.box', data.title, data.list);
     // console.log(obj1);
+    Createlist.prototype.render = function() {
+        var h1 = this.ele.querySelector('h1');
+        var ul = this.ele.querySelector('ul');
+        var img = this.ele.querySelector('img');
+        h1.innerHTML = this.title;
+        // img.src = this.img;
+        ul.innerHTML = this.list.map(itme => `<li>${itme}</li>`).join('');
+
+    };
+
+
     var obj1 = new Createlist('.box', data1);
     console.log(obj1);
     var obj2 = new Createlist('.box2', data2);

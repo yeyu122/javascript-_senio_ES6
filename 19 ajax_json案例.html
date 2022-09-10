@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul">
+
+    </ul>
+</body>
+<script>
+    function createlist() {
+
+    }
+    var xml = new XMLHttpRequest;
+
+    xml.open("GET", "http://xiongmaoyouxuan.com/api/tabs");
+    xml.send();
+    xml.onload = function() {
+        if (xml.readyState === 4 && (xml.status >= 200 && xml.status < 300) || xml.status === 304) { //status 200-299是正常的 ||304
+            console.log("请求成功--状态码:", xml.status, xml.responseText); //responseText响应正文
+            var datas = xml.responseText;
+            var jsondata = JSON.parse(datas);
+            createobj(jsondata);
+        } else if (xml.readyState === 4 && xml.status === 404) {
+            console.error("请求错误--状态码:", xml.status)
+            location.href = '404.html';
+        }
+    }
+
+    function createobj(jsondata) {
+        console.log(jsondata.data.list);
+        var html = jsondata.data.list.map(itme => {
+            return `
+        <li>
+            <p>${itme.name}</p>
+            <img src="${itme.imageUrl}" alt="">
+        </li>
+        `
+        });
+        ul.innerHTML = html.join("");
+    }
+</script>
+
+</html>
