@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>提交</button>
+</body>
+<script>
+    var but = document.querySelector('button');
+    console.log(but);
+    but.onclick = function() {
+        var date = new Date();
+        document.cookie = "str = 11111111111111;path=/cookie.html" // path在这个路径中的可以访问;
+        date.setMinutes(date.getMinutes() + 1); // 一分钟后cookie失效
+        document.cookie = `str = 11111111111111;xpires=${date.toUTCString()}`;
+        console.log(getcookie('str'));
+    }
+
+    // 封装获取cookie的关键字key;
+    function getcookie(key) {
+        var str = document.cookie;
+        var arr = str.split(";");
+        var obj = {};
+        for (var i = 0; i < arr.length; i++) {
+            var subarr = arr[i].split("=");
+            obj[subarr[0]] = subarr[1];
+        }
+        return obj[key];
+    }
+</script>
+
+</html>

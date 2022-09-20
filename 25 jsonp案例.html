@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="search" name="" id="input_s">
+    <ul id="list"></ul>
+</body>
+<script>
+    console.log(input_s);
+    input_s.oninput = function(e) {
+        console.log(e.target.value);
+        if (!e.target.value) {
+            list.innerHTML = "";
+            return
+        }
+        var oncreate = document.createElement("script");
+        // oncreate.src = '1.txt'; //     text({name: "手动"})
+        oncreate.src = `https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=36559,36459,37354,36885,34813,37274,36569,36805,36786,37317,26350,37284,37372&wd=${e.target.value}&req=2&csor=6&pwd=acccc&cb=jQuery11020459867872297379_1663425400894&_=1663425400900`;
+        document.body.appendChild(oncreate);
+        oncreate.remove();
+    }
+
+    function jQuery11020459867872297379_1663425400894(obj) { //cd = text;
+        console.log(obj);
+        list.innerHTML = obj.g.map(itme =>
+            `<li>${itme.q}</li>`
+        ).join("");
+    }
+</script>
+
+</html>

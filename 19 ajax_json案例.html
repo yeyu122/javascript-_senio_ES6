@@ -20,6 +20,11 @@
     var xml = new XMLHttpRequest;
 
     xml.open("GET", "http://xiongmaoyouxuan.com/api/tabs");
+    // 将此连接的 Content-Type 响应头项赋值到 contentType。
+    xml.getResponseHeader("Content-Type", 'application/x-www-form-urlencoded'); //getResponseHeader()方法返回包含指定响应头文本的字符串。
+    // xml.send(json.stringify({
+    //     text: '可以传值.能通过不同的请求方式,进行增删改查操作',
+    // }));
     xml.send();
     xml.onload = function() {
         if (xml.readyState === 4 && (xml.status >= 200 && xml.status < 300) || xml.status === 304) { //status 200-299是正常的 ||304
@@ -43,7 +48,7 @@
         </li>
         `
         });
-        // console.log('html的内容:', html.join(''));
+        // console.log('html的内容:', html.join('')); 
         ul.innerHTML = html.join("");
     }
 </script>
